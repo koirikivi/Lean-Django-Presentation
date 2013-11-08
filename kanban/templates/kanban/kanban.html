@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for list in lists %}
+        <section class="col-md-4 kanban-list">
+            <h1>{{ list.name }}</h1>
+            <ul>
+                {% for card in list.cards.all %}
+                    <li class="kanban-card">
+                        {{ card.description|linebreaks }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endfor %}
+{% endblock %}
